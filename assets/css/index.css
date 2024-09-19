@@ -1,0 +1,216 @@
+/*---------------------------------- FONTS ------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+/* Como usar cada fonte: */
+
+/* font-family: "Roboto Mono", monospace; */
+/* font-family: "Josefin Sans", sans-serif; */
+/* font-family: "Chewy", system-ui; */
+/* font-family: "League Spartan", sans-serif; */
+
+
+
+/* ---------------------------------- ESTILOS -----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    background-color: #000000;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* -------------------------------------- HEADER ----------------------------*/
+
+header {
+    padding: 15px 80px;
+    top: 0;
+    width: 100%;
+    background-color: #000000;
+    box-shadow: 0px 1px 15px rgba(255, 198, 198, 0.1);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    z-index: 2;  
+}
+
+.logo {
+    background: url('../img/Logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.nav-list {
+    display: flex;
+    gap: 50px;        
+}
+
+.nav-link {
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: .6;
+    position: relative;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+} 
+
+.nav-link:hover {
+    transition: all .5s ease;
+    opacity: 1;
+    text-shadow: 15px 2px 30px rgba(255, 255, 255, 0.7),
+                -15px -2px 30px rgba(255, 255, 255, 0.7);
+}
+
+.selected {
+    opacity: 1;
+}
+
+.selected::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 0%;
+    padding: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%) scale(1);
+    border: 1px solid #a80b0b;
+    border-radius: 10px;
+    background-color: #a80b0b;
+    z-index: -1;
+    animation: animacaoSelected .5s ease forwards;
+}
+
+
+
+
+/* ------------------------------------ SECTIONS ---------------------------------*/
+
+.conteudos {
+    height: 100vh;
+}
+
+/* INICIO*/
+
+.inicio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px;
+    position: relative;
+}
+
+.img-seta {
+    position: absolute;
+    content: '';
+    background: url('../img/seta.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    left: 49.5%;
+    animation: setaInicio .4s ease forwards infinite alternate;
+    cursor: pointer;
+}
+
+.frase h1 {
+    text-align: center;
+    font-family: 'Chewy', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 7rem;
+}
+
+.frase h4 {
+    padding: 30px 0;
+    text-align: end;
+    font-size: 1.3rem;
+    font-family: 'League Spartan', sans-serif;
+}
+
+#palavra-diferente {
+    color: #a80b0b;
+}
+
+.img-inicio {
+    background: url('../img/computador.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 60%;
+    height: 60%;
+    min-width: 700px;
+    min-height: 700px;
+    margin-right: -13%;
+    position: relative;
+}
+
+.img-inicio::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: url('../img/computador\ com\ fundo.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: neon 3s ease-in-out forwards;
+}
+
+/* --------------------------------------KEYFRAMES ------------------------------*/
+
+@keyframes animacaoSelected {
+
+    from {
+        width: 0;
+        height: 0;
+    }
+
+    to {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@keyframes setaInicio {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
+
+}
+
+@keyframes neon {
+
+    from {
+        filter: none;
+    }
+
+    to {
+        filter: drop-shadow(1px 1px 120px #994b4b);        
+    }
+
+}
