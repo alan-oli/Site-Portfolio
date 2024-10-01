@@ -13,7 +13,7 @@
 
 
 
-/* ---------------------------------- ESTILOS -----------------------------*/
+/* ---------------------------------- GERAIS -----------------------------*/
 
 * {
     margin: 0;
@@ -105,7 +105,7 @@ header {
 /* ------------------------------------ SECTIONS ---------------------------------*/
 
 .conteudos {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* INICIO*/
@@ -175,6 +175,96 @@ header {
     animation: neon 3s ease-in-out forwards;
 }
 
+.sobre {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 80px 400px;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+}
+
+.sobre img {
+    align-self: center;
+    width: 350px;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 50px #a80b0b71,
+                -1px -1px 50px #994b4b;
+    border: 5px solid black;
+    animation: flutuacao 3s ease forwards infinite alternate;
+    transition: all 2s;
+}
+
+.sobre h1 {
+    font-size: 2.1rem;  
+    animation: aparecer 1s ease forwards;
+}
+
+.sobre p {
+    font-size: 1.5rem;
+    text-align: justify;
+    line-height: 30px;
+}
+
+/* ----------------------------------- MEDIA QUERYS ----------------------------*/
+
+@media screen and (max-width: 1540px) {
+    
+    .sobre {
+        padding: 80px 200px;
+    }
+
+    .frase h1 {
+        font-size: 5rem;
+    }
+
+    .frase h4 {
+        font-size: 1.1rem;
+    }
+
+}
+
+@media screen and (max-width: 1450px) {
+
+    .inicio {
+        justify-content: center;
+    }
+
+    .frase h1 {
+        font-size: 4rem;
+    }
+
+    .frase h4 {
+        font-size: 1rem;
+    }
+
+    .img-inicio {
+        display: none;
+    }
+
+    .sobre img {
+        width: 250px;
+    }
+
+}
+
+@media screen and (max-width: 770px) {
+    .sobre {
+        padding: 80px;
+    }
+
+    .sobre p {
+        font-size: 1.2rem;
+    }
+
+    .sobre h1 {
+        font-size: 1.7rem;
+    }
+}
+
 /* --------------------------------------KEYFRAMES ------------------------------*/
 
 @keyframes animacaoSelected {
@@ -211,6 +301,34 @@ header {
 
     to {
         filter: drop-shadow(1px 1px 120px #994b4b);        
+    }
+
+}
+
+@keyframes flutuacao {
+
+    from {
+        box-shadow: 1px 1px 50px #a80b0b3f,
+                -1px -1px 50px #994b4b88;
+        transition: all 2s;
+    }
+
+    to {
+        box-shadow: 1px 1px 50px #a80b0b71,
+                -1px -1px 50px #994b4b;
+        transition: all 2s;
+    }
+
+}
+
+@keyframes aparecer {
+
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
     }
 
 }
