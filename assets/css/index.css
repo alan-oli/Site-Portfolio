@@ -269,7 +269,7 @@ header {
 
     .nav-list {
         position: absolute;
-        top: -1000px;
+        top: -100vh;
         flex-direction: column;
         left: 0;
         width: 100%;
@@ -387,7 +387,7 @@ header {
 
 @keyframes descerMenu {
     from {
-        top: -1000px;
+        top: -100vh;
     }
 
     to {
@@ -401,13 +401,13 @@ header {
     }
 
     to {
-        top: -1000px;
+        top: -100vh;
     }
 }
 
 @keyframes links {
     from {
-        transform: translateX(1000px);
+        transform: translateX(100vw);
     }
 
     to {
