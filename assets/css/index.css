@@ -26,6 +26,7 @@
 
 body {
     min-height: 100vh;
+    min-width: 320px;
     max-width: 100vw;
     background-color: #000000;
     position: relative;
@@ -97,6 +98,18 @@ header {
     background-color: #a80b0b;
     z-index: -1;
     animation: animacaoSelected .5s ease forwards;
+}
+
+#open-menu-icon {
+    fill: #a80b0b;
+    cursor: pointer;
+    display: none;
+}
+
+#close-menu-icon {
+    fill: #a80b0b;
+    cursor: pointer;
+    display: none;
 }
 
 
@@ -204,8 +217,9 @@ header {
 }
 
 .sobre p {
+    text-indent: 50px;
     font-size: 1.5rem;
-    text-align: justify;
+    text-align: left;
     line-height: 30px;
 }
 
@@ -251,9 +265,47 @@ header {
 
 }
 
-@media screen and (max-width: 770px) {
-    .sobre {
+@media screen and (max-width: 800px) {
+
+    .nav-list {
+        position: absolute;
+        top: -1000px;
+        flex-direction: column;
+        left: 0;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
         padding: 80px;
+        height: 100vh;
+        min-height: 600px;
+        background-color: rgba(0, 0, 0, 0.98);
+        z-index: 1;
+    }
+
+    #link-inicio {
+        margin-top: 80px;
+    }
+
+    #close-menu-icon {
+        display: block;
+        position: absolute;
+        top: 50px;
+    }
+
+    #open-menu-icon {
+        display: block;
+    }
+
+    .inicio {
+        padding: 0 40px;
+    }
+
+    .img-seta {
+        left: 45%;
+    }
+
+    .sobre {
+        padding: 40px;
     }
 
     .sobre p {
@@ -331,4 +383,34 @@ header {
         transform: translateX(0);
     }
 
+}
+
+@keyframes descerMenu {
+    from {
+        top: -1000px;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes subirMenu {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: -1000px;
+    }
+}
+
+@keyframes links {
+    from {
+        transform: translateX(1000px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }

@@ -5,6 +5,12 @@ const sections = document.querySelectorAll('.conteudos') //junta todas as sectio
 
 const scroolSeta = document.querySelector('.img-seta')
 
+const openMenu = document.querySelector('#open-menu-icon')
+
+const closeMenu = document.querySelector('#close-menu-icon')
+
+const navList = document.querySelector('.nav-list')
+
 
 // EventListener para mudar o foco conforme seção clicada
 navLinks.forEach(link => {
@@ -47,7 +53,6 @@ const observador = new IntersectionObserver(function(entries) {
             // logo abaixo deixamos um parâmetro para quanto da tela deve estar amostra para realizar a ação
 
             //remove todos os selecteds por precaução
-            navLinks.forEach(link => link.classList.remove('selected'))
 
             link.classList.add('selected')
 
@@ -59,7 +64,35 @@ const observador = new IntersectionObserver(function(entries) {
 
     })
 
-}, {threshold: 0.6})// esse parâmetro diz que 60% da tela deve estar amostra para que realize a ação
+}, {threshold: 0.4})// esse parâmetro diz que 60% da tela deve estar amostra para que realize a ação
 
 sections.forEach(section => observador.observe(section)) //Aqui chamaos o observador para cada section do array de sections da página, é semelhante a como o EventListener age
 
+//Agora vamos criar os EventListener do menu quando página está na versão mobile
+
+
+openMenu.addEventListener('click', () => {
+
+    let count = 1.5
+
+    navList.style.animation = 'descerMenu .8s ease forwards'
+
+    navLinks.forEach(link => {
+
+        
+        link.style.animation = `links ${count}s ease forwards`
+
+        count += 0.2
+    })
+
+    closeMenu.addEventListener('click', () => {
+
+        navLinks.forEach(link => {
+            link.style.animation = `none`
+        })
+
+        navList.style.animation = 'subirMenu 2s ease forwards'
+
+    })
+
+})
